@@ -19,6 +19,10 @@ nuget restore %SOLUTION_DIR%\WebRTCPlugin.sln
 if not %errorlevel% == 0 exit 1
 
 echo -------------------
+echo Rename gmock folder
+ren %SOLUTION_DIR%\packages\googlemock.v140.windesktop.static.rt-dyn.1.7.0.1\build\native\include\gtest gmock
+
+echo -------------------
 echo Build com.unity.webrtc Plugin 
 
 MSBuild %SOLUTION_DIR%\WebRTCPlugin.sln -t:Rebuild -p:Configuration=Release
